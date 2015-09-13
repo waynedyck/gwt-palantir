@@ -12,7 +12,7 @@
         <mgwt:header.HeaderPanel>
             <local:button.image.MenuImageButton ui:field="menuButton" />
             <mgwt:panel.flex.FlexSpacer />
-            <mgwt:header.HeaderTitle>MGWT Basic SwipeMenu</mgwt:header.HeaderTitle>
+            <mgwt:header.HeaderTitle>Palantir</mgwt:header.HeaderTitle>
             <mgwt:panel.flex.FlexSpacer />
             <mgwt:panel.flex.FixedSpacer />
         </mgwt:header.HeaderPanel>

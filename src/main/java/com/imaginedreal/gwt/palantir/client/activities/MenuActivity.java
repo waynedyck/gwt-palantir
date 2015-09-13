@@ -64,9 +64,11 @@ public class MenuActivity extends MGWTAbstractActivity implements
 	private List<Topic> createTopicsList() {
 		ArrayList<Topic> list = new ArrayList<Topic>();
 		
-		list.add(new Topic("Menu Item One"));
-		list.add(new Topic("Menu Item Two"));
-		list.add(new Topic("Menu Item Three"));
+		list.add(new Topic("Read Now"));
+		list.add(new Topic("My Library"));
+		list.add(new Topic("Search Bookshare"));
+		list.add(new Topic("Settings"));
+		list.add(new Topic("Help & feedback"));
 		
 		return list;
 	}
