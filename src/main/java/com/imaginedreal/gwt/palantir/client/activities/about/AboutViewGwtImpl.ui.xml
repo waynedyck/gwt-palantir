@@ -5,7 +5,12 @@
     xmlns:mgwt="urn:import:com.googlecode.mgwt.ui.client.widget">
 
     <ui:style>
+        .htmlPanel {
+            padding: 16px;
+        }
     </ui:style>
+    
+    <ui:import field="com.imaginedreal.gwt.palantir.client.util.Consts.APP_VERSION" />
 
     <mgwt:panel.flex.RootFlexPanel>
         <mgwt:header.HeaderPanel>
@@ -17,11 +22,22 @@
         </mgwt:header.HeaderPanel>
 
         <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false">
-            <mgwt:panel.Panel>
-                <g:HTML>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </g:HTML>
-            </mgwt:panel.Panel>
+            <g:HTMLPanel styleName="{style.htmlPanel}">
+            	<g:HTML>
+            	    <p><strong>Palantir</strong> is an experimental reader for accessing Bookshare, an accessible online
+                    library for people with print disabilities. Bookshare books are “accessible,” which 
+                    means you can read their books in many different ways. Bookshare offers the world’s 
+                    largest collection of accessible titles.</p><br />
+                    <p>This app's focus is simply on adding large print capabilities to books so my son 
+                    can enjoy the magic that reading books offers.</p><br />
+            	    <p>The app is still being worked on so if you have any questions, thoughts or suggestions 
+            	        on how to make it better please feel free to send an email to 
+            	        <a href="mailto:support@imaginedreal.com?subject=Palantir App" style="color:rgba(0,0,0,0.54);">
+            	            Imagined Real Support</a>.</p>
+            	    <br />
+            	    <p style="color:rgba(0,0,0,0.54);">App Version: <ui:text from="{APP_VERSION}" /></p>
+            	</g:HTML>
+            </g:HTMLPanel>
         </mgwt:panel.scroll.ScrollPanel>
 
     </mgwt:panel.flex.RootFlexPanel>
