@@ -8,7 +8,7 @@
 		<mgwt:header.HeaderPanel>
             <mgwt:panel.flex.FixedSpacer />
 			<mgwt:panel.flex.FlexSpacer />
-			<mgwt:header.HeaderTitle>Menu</mgwt:header.HeaderTitle>
+			<mgwt:header.HeaderTitle>Palantir</mgwt:header.HeaderTitle>
 			<mgwt:panel.flex.FlexSpacer />
 			<mgwt:button.image.AboutImageButton ui:field="aboutButton" />
 		</mgwt:header.HeaderPanel>
