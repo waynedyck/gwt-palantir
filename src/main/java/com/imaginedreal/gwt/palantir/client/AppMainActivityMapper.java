@@ -16,15 +16,15 @@
 
 package com.imaginedreal.gwt.palantir.client;
 
+import com.google.gwt.activity.shared.Activity;
+import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.place.shared.Place;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutActivity;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomeActivity;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SampleActivity;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SamplePlace;
-import com.google.gwt.activity.shared.Activity;
-import com.google.gwt.activity.shared.ActivityMapper;
-import com.google.gwt.place.shared.Place;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchActivity;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
 
 public class AppMainActivityMapper implements ActivityMapper {
 
@@ -65,8 +65,8 @@ public class AppMainActivityMapper implements ActivityMapper {
             return new AboutActivity(clientFactory);
         }
         
-        if (newPlace instanceof SamplePlace) {
-            return new SampleActivity(clientFactory);
+        if (newPlace instanceof SearchPlace) {
+            return new SearchActivity(clientFactory);
         }
 
 		return null;

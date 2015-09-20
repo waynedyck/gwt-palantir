@@ -16,12 +16,12 @@
 
 package com.imaginedreal.gwt.palantir.client;
 
-import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace.AboutPlaceTokenizer;
-import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace.HomePlaceTokenizer;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SamplePlace.SamplePlaceTokenizer;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.place.shared.WithTokenizers;
+import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace.AboutPlaceTokenizer;
+import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace.HomePlaceTokenizer;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace.SearchPlaceTokenizer;
 
-@WithTokenizers({ HomePlaceTokenizer.class, AboutPlaceTokenizer.class, SamplePlaceTokenizer.class })
+@WithTokenizers({ HomePlaceTokenizer.class, AboutPlaceTokenizer.class, SearchPlaceTokenizer.class })
 public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {
 }

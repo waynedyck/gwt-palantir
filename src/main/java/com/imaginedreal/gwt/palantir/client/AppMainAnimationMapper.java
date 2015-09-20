@@ -16,13 +16,13 @@
 
 package com.imaginedreal.gwt.palantir.client;
 
-import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
-import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SamplePlace;
 import com.google.gwt.place.shared.Place;
 import com.googlecode.mgwt.mvp.client.AnimationMapper;
 import com.googlecode.mgwt.ui.client.widget.animation.Animation;
 import com.googlecode.mgwt.ui.client.widget.animation.Animations;
+import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
+import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
 
 public class AppMainAnimationMapper implements AnimationMapper {
 
@@ -32,7 +32,7 @@ public class AppMainAnimationMapper implements AnimationMapper {
       return Animations.FADE;
     }
     
-    if (oldPlace instanceof SamplePlace && newPlace instanceof HomePlace) {
+    if (oldPlace instanceof SearchPlace && newPlace instanceof HomePlace) {
         return Animations.FADE_REVERSE;
     }
     

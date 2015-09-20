@@ -16,13 +16,13 @@
 
 package com.imaginedreal.gwt.palantir.client;
 
-import com.imaginedreal.gwt.palantir.client.activities.MenuView;
-import com.imaginedreal.gwt.palantir.client.activities.about.AboutView;
-import com.imaginedreal.gwt.palantir.client.activities.home.HomeView;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SampleView;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.web.bindery.event.shared.EventBus;
 import com.googlecode.mgwt.ui.client.widget.menu.swipe.SwipeMenu;
+import com.imaginedreal.gwt.palantir.client.activities.MenuView;
+import com.imaginedreal.gwt.palantir.client.activities.about.AboutView;
+import com.imaginedreal.gwt.palantir.client.activities.home.HomeView;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchView;
 
 
 public interface ClientFactory {
@@ -36,6 +36,6 @@ public interface ClientFactory {
 	 * @return
 	 */
 	public AboutView getAboutView();
-	public SampleView getSampleView();
-        public MenuView getMenuView();
+	public SearchView getSearchView();
+	public MenuView getMenuView();
 }

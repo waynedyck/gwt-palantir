@@ -21,6 +21,7 @@ import java.util.List;
 
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
 import com.imaginedreal.gwt.palantir.shared.Topic;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -61,14 +62,19 @@ public class MenuActivity extends MGWTAbstractActivity implements
 		}
 		if (index == 1) {
 		    clientFactory.getSwipeMenu().close(false);
-            //clientFactory.getPlaceController().goTo(new MenuItemTwoPlace());
+            clientFactory.getPlaceController().goTo(new SearchPlace());
 		    return;
 		}
 		if (index == 2) {
 		    clientFactory.getSwipeMenu().close(false);
 			//clientFactory.getPlaceController().goTo(new MenuItemThreePlace());
 			return;
-		}		
+		}
+		if (index == 3) {
+		    clientFactory.getSwipeMenu().close(false);
+		    //clientFactory.getPlaceController().goTo(new MenuItemFourPlace());
+		    return;
+		}
 	}
 	
     @Override

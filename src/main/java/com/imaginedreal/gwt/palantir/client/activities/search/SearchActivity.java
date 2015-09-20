@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.imaginedreal.gwt.palantir.client.activities.sample;
+package com.imaginedreal.gwt.palantir.client.activities.search;
 
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
 import com.imaginedreal.gwt.palantir.client.event.ActionEvent;
@@ -24,20 +24,20 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
-public class SampleActivity extends MGWTAbstractActivity implements
-		SampleView.Presenter {
+public class SearchActivity extends MGWTAbstractActivity implements
+		SearchView.Presenter {
 
 	private final ClientFactory clientFactory;
-	private SampleView view;
+	private SearchView view;
 	private EventBus eventBus;
 
-	public SampleActivity(ClientFactory clientFactory) {
+	public SearchActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
 	@Override
 	public void start(AcceptsOneWidget panel, final EventBus eventBus) {
-		//view = clientFactory.getSampleView();
+		view = clientFactory.getSearchView();
 		this.eventBus = eventBus;
 		view.setPresenter(this);
 
@@ -54,5 +54,10 @@ public class SampleActivity extends MGWTAbstractActivity implements
 	public void onBackButtonPressed() {
 		ActionEvent.fire(eventBus, ActionNames.BACK);
 	}
+
+    @Override
+    public void onSearchTextChanged(String filter) {
+        view.showProgressIndicator();
+    }
 
 }

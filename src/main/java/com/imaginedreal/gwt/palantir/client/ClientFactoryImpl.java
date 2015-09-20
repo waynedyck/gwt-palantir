@@ -16,18 +16,18 @@
 
 package com.imaginedreal.gwt.palantir.client;
 
+import com.google.gwt.place.shared.PlaceController;
+import com.google.web.bindery.event.shared.EventBus;
+import com.google.web.bindery.event.shared.SimpleEventBus;
+import com.googlecode.mgwt.ui.client.widget.menu.swipe.SwipeMenu;
 import com.imaginedreal.gwt.palantir.client.activities.MenuView;
 import com.imaginedreal.gwt.palantir.client.activities.MenuViewGwtImpl;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutView;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutViewGwtImpl;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomeView;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomeViewGwtImpl;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SampleView;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SampleViewGwtImpl;
-import com.google.gwt.place.shared.PlaceController;
-import com.google.web.bindery.event.shared.EventBus;
-import com.google.web.bindery.event.shared.SimpleEventBus;
-import com.googlecode.mgwt.ui.client.widget.menu.swipe.SwipeMenu;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchView;
+import com.imaginedreal.gwt.palantir.client.activities.search.SearchViewGwtImpl;
 
 public class ClientFactoryImpl implements ClientFactory {
 
@@ -36,7 +36,7 @@ public class ClientFactoryImpl implements ClientFactory {
 	private SwipeMenu swipeMenu;
 	private HomeView homeView;
 	private AboutViewGwtImpl aboutView;
-	private SampleViewGwtImpl sampleView;
+	private SearchViewGwtImpl searchView;
 	private MenuViewGwtImpl menuView;
 
 	public ClientFactoryImpl() {
@@ -80,12 +80,12 @@ public class ClientFactoryImpl implements ClientFactory {
 	}
 
     @Override
-    public SampleView getSampleView() {
-        if (sampleView == null) {
-            sampleView = new SampleViewGwtImpl();
+    public SearchView getSearchView() {
+        if (searchView == null) {
+            searchView = new SearchViewGwtImpl();
         }
 
-        return sampleView;
+        return searchView;
     }
 
     @Override
