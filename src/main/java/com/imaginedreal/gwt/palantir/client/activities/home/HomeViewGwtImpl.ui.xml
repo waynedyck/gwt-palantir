@@ -6,6 +6,35 @@
     xmlns:local="urn:import:com.imaginedreal.gwt.palantir.client.widget">
 
     <ui:style>
+        .emptyLibrary {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            color: black;
+            font-weight: bold;
+            max-width: 100%;
+            margin: 20px 20px 0px 20px;
+        }
+        .emptyLibrary > div:nth-child\(1\) {
+            text-align: center;
+        }
+        .emptyLibrary > div:nth-child\(2\) {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+        .progressIndicatorPanel {
+            display: -webkit-box;
+            display: -webkit-flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            max-width: 100%;
+        }
+        .progressIndicator {
+            margin-right: 0px;
+        }
     </ui:style>
 
     <mgwt:panel.flex.RootFlexPanel>
@@ -18,7 +47,12 @@
         </mgwt:header.HeaderPanel>
 
         <mgwt:panel.scroll.ScrollPanel ui:field="scrollPanel" scrollingEnabledX="false">
-            <mgwt:list.celllist.CellList ui:field="cellList" />
+            <g:FlowPanel ui:field="flowPanel">
+                <mgwt:list.celllist.CellList ui:field="cellList" visible="false" />
+                <g:HTMLPanel ui:field="emptyLibrary" styleName="{style.emptyLibrary}" visible="false">
+                    <g:HTML>No books added yet.</g:HTML>
+                </g:HTMLPanel>
+            </g:FlowPanel>
         </mgwt:panel.scroll.ScrollPanel>
 
     </mgwt:panel.flex.RootFlexPanel>
