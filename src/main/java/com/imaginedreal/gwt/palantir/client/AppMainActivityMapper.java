@@ -25,6 +25,8 @@ import com.imaginedreal.gwt.palantir.client.activities.home.HomeActivity;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchActivity;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsActivity;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsPlace;
 
 public class AppMainActivityMapper implements ActivityMapper {
 
@@ -67,6 +69,10 @@ public class AppMainActivityMapper implements ActivityMapper {
         
         if (newPlace instanceof SearchPlace) {
             return new SearchActivity(clientFactory);
+        }
+        
+        if (newPlace instanceof SettingsPlace) {
+            return new SettingsActivity(clientFactory);
         }
 
 		return null;

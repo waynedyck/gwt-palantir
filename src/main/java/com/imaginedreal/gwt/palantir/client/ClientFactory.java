@@ -23,6 +23,7 @@ import com.imaginedreal.gwt.palantir.client.activities.MenuView;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutView;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomeView;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchView;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsView;
 
 
 public interface ClientFactory {
@@ -38,4 +39,5 @@ public interface ClientFactory {
 	public AboutView getAboutView();
 	public SearchView getSearchView();
 	public MenuView getMenuView();
+	public SettingsView getSettingsView();
 }

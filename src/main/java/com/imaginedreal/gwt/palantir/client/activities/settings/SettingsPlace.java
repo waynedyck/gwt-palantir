@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.imaginedreal.gwt.palantir.client.activities.sample;
+package com.imaginedreal.gwt.palantir.client.activities.settings;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
-public class SamplePlace extends Place {
+public class SettingsPlace extends Place {
 	
-	public static class SamplePlaceTokenizer implements
-			PlaceTokenizer<SamplePlace> {
+	public static class SettingsPlaceTokenizer implements
+			PlaceTokenizer<SettingsPlace> {
 
 		@Override
-		public SamplePlace getPlace(String token) {
-			return new SamplePlace();
+		public SettingsPlace getPlace(String token) {
+			return new SettingsPlace();
 		}
 
 		@Override
-		public String getToken(SamplePlace place) {
+		public String getToken(SettingsPlace place) {
 			return "";
 		}
 

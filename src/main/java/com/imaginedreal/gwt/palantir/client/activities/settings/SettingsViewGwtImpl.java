@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.imaginedreal.gwt.palantir.client.activities.sample;
+package com.imaginedreal.gwt.palantir.client.activities.settings;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -25,20 +25,20 @@ import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.ui.client.widget.button.image.PreviousitemImageButton;
 
-public class SampleViewGwtImpl extends Composite implements SampleView {
+public class SettingsViewGwtImpl extends Composite implements SettingsView {
 
 	/**
 	 * The UiBinder interface.
 	 */	
-	interface SampleViewGwtImplUiBinder extends
-			UiBinder<Widget, SampleViewGwtImpl> {
+	interface SettingsViewGwtImplUiBinder extends
+			UiBinder<Widget, SettingsViewGwtImpl> {
 	}
 
 	/**
 	 * The UiBinder used to generate the view.
 	 */
-	private static SampleViewGwtImplUiBinder uiBinder = GWT
-			.create(SampleViewGwtImplUiBinder.class);
+	private static SettingsViewGwtImplUiBinder uiBinder = GWT
+			.create(SettingsViewGwtImplUiBinder.class);
 	
 
 	@UiField
@@ -46,7 +46,7 @@ public class SampleViewGwtImpl extends Composite implements SampleView {
 	
 	private Presenter presenter;
 	
-	public SampleViewGwtImpl() {
+	public SettingsViewGwtImpl() {
 	
 		initWidget(uiBinder.createAndBindUi(this));
 

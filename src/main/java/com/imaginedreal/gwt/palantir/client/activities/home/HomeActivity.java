@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
-import com.imaginedreal.gwt.palantir.client.activities.sample.SamplePlace;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsPlace;
 import com.imaginedreal.gwt.palantir.shared.Topic;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -57,7 +57,7 @@ public class HomeActivity extends MGWTAbstractActivity implements
     @Override
     public void onItemSelected(int index) {
         if (index == 0) {
-            clientFactory.getPlaceController().goTo(new SamplePlace());
+            clientFactory.getPlaceController().goTo(new SettingsPlace());
             
             return;
         }        

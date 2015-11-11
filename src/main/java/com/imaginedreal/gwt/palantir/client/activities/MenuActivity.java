@@ -21,7 +21,9 @@ import java.util.List;
 
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
+import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsPlace;
 import com.imaginedreal.gwt.palantir.shared.Topic;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -57,7 +59,7 @@ public class MenuActivity extends MGWTAbstractActivity implements
 	public void onItemSelected(int index) {
 		if (index == 0) {
 		    clientFactory.getSwipeMenu().close(false);
-			//clientFactory.getPlaceController().goTo(new MenuItemOnePlace());
+			clientFactory.getPlaceController().goTo(new HomePlace());
 			return;
 		}
 		if (index == 1) {
@@ -67,7 +69,7 @@ public class MenuActivity extends MGWTAbstractActivity implements
 		}
 		if (index == 2) {
 		    clientFactory.getSwipeMenu().close(false);
-			//clientFactory.getPlaceController().goTo(new MenuItemThreePlace());
+			clientFactory.getPlaceController().goTo(new SettingsPlace());
 			return;
 		}
 		if (index == 3) {

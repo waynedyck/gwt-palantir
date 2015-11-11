@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.imaginedreal.gwt.palantir.client.activities.sample;
+package com.imaginedreal.gwt.palantir.client.activities.settings;
 
 import com.google.gwt.user.client.ui.IsWidget;
 
-public interface SampleView extends IsWidget {
+public interface SettingsView extends IsWidget {
 	
 	public void setPresenter(Presenter presenter);
 	

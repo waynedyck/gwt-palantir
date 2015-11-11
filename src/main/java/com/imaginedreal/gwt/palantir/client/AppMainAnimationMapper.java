@@ -23,6 +23,7 @@ import com.googlecode.mgwt.ui.client.widget.animation.Animations;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsPlace;
 
 public class AppMainAnimationMapper implements AnimationMapper {
 
@@ -37,6 +38,10 @@ public class AppMainAnimationMapper implements AnimationMapper {
     }
     
     if (oldPlace instanceof AboutPlace && newPlace instanceof HomePlace) {
+        return Animations.FADE_REVERSE;
+    }
+    
+    if (oldPlace instanceof SettingsPlace && newPlace instanceof HomePlace) {
         return Animations.FADE_REVERSE;
     }
     

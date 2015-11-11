@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.imaginedreal.gwt.palantir.client.activities.sample;
+package com.imaginedreal.gwt.palantir.client.activities.settings;
 
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
 import com.imaginedreal.gwt.palantir.client.event.ActionEvent;
@@ -24,20 +24,20 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
 
-public class SampleActivity extends MGWTAbstractActivity implements
-		SampleView.Presenter {
+public class SettingsActivity extends MGWTAbstractActivity implements
+		SettingsView.Presenter {
 
 	private final ClientFactory clientFactory;
-	private SampleView view;
+	private SettingsView view;
 	private EventBus eventBus;
 
-	public SampleActivity(ClientFactory clientFactory) {
+	public SettingsActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
 	@Override
 	public void start(AcceptsOneWidget panel, final EventBus eventBus) {
-		//view = clientFactory.getSampleView();
+		view = clientFactory.getSettingsView();
 		this.eventBus = eventBus;
 		view.setPresenter(this);
 

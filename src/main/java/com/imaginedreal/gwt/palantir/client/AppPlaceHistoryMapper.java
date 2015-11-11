@@ -21,7 +21,9 @@ import com.google.gwt.place.shared.WithTokenizers;
 import com.imaginedreal.gwt.palantir.client.activities.about.AboutPlace.AboutPlaceTokenizer;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomePlace.HomePlaceTokenizer;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchPlace.SearchPlaceTokenizer;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsPlace.SettingsPlaceTokenizer;
 
-@WithTokenizers({ HomePlaceTokenizer.class, AboutPlaceTokenizer.class, SearchPlaceTokenizer.class })
+@WithTokenizers({ HomePlaceTokenizer.class, AboutPlaceTokenizer.class, SearchPlaceTokenizer.class,
+    SettingsPlaceTokenizer.class})
 public interface AppPlaceHistoryMapper extends PlaceHistoryMapper {
 }

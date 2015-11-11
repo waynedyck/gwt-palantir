@@ -28,6 +28,8 @@ import com.imaginedreal.gwt.palantir.client.activities.home.HomeView;
 import com.imaginedreal.gwt.palantir.client.activities.home.HomeViewGwtImpl;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchView;
 import com.imaginedreal.gwt.palantir.client.activities.search.SearchViewGwtImpl;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsView;
+import com.imaginedreal.gwt.palantir.client.activities.settings.SettingsViewGwtImpl;
 
 public class ClientFactoryImpl implements ClientFactory {
 
@@ -38,6 +40,7 @@ public class ClientFactoryImpl implements ClientFactory {
 	private AboutViewGwtImpl aboutView;
 	private SearchViewGwtImpl searchView;
 	private MenuViewGwtImpl menuView;
+	private SettingsView settingsView;
 
 	public ClientFactoryImpl() {
 		eventBus = new SimpleEventBus();
@@ -94,6 +97,14 @@ public class ClientFactoryImpl implements ClientFactory {
             menuView = new MenuViewGwtImpl();
         }
         return menuView;
+    }
+
+    @Override
+    public SettingsView getSettingsView() {
+        if (settingsView == null) {
+            settingsView = new SettingsViewGwtImpl();
+        }
+        return settingsView;
     }
 
 }
