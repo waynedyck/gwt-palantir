@@ -96,7 +96,7 @@ public class SearchActivity extends MGWTAbstractActivity implements
                         
                         String isbn = result.getBookShare().getBook().getList().getResult().get(i).getIsbn13();
                         book.setIsbn13(isbn);
-                        book.setBookCoverUrl("http://covers.openlibrary.org/b/isbn/" + isbn + "-S.jpg");
+                        book.setBookCoverUrl("http://covers.openlibrary.org/b/isbn/" + isbn + "-M.jpg");
                         
                         books.add(book);
                     }

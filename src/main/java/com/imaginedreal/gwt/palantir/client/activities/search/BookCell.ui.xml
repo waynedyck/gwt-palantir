@@ -2,30 +2,25 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder">
 
     <ui:style>
-        .videoImage {
-            overflow: hidden;
-            display: inline-block;
-            -webkit-border-radius: 8px;
-        }
-        .videoImage div {
-            position: relative;
-            max-width: none;
-            height: auto;
-            margin: -2px -2px -6px -2px;
+        .container {
+            display: flex;
+			flex-direction: row;
         }
         .img {
-            max-width: 100%;
+            max-width: 120px;
         }
+		.column {
+			flex-direction: column;
+			padding: 0 14px 0 5px;
+		}
         .title {
-            font-size: small;
-            font-weight: normal;
+            font-size: normal;
+            font-weight: bold;
             word-wrap: break-word;
-            padding-top: 7px;
             padding-bottom: 7px;
         }
         .briefSynopsis {
-            font-size: small;
-            color: #7d7d7d;
+            font-size: normal;
         }
     </ui:style>
     
@@ -33,14 +28,14 @@
     <ui:with field="title" type="java.lang.String" />
     <ui:with field="briefSynopsis" type="java.lang.String" />
     
-    <div>
-        <div class="{style.videoImage}">
-            <div>
-                <img class="{style.img}" src="{bookCoverUrl}" onload="refreshPanel();" />
-            </div>
+    <div class="{style.container}">
+        <div class="{style.column}">
+            <img class="{style.img}" src="{bookCoverUrl}" onload="refreshPanel();" />
         </div>
-        <div class="{style.title}"><ui:text from="{title}" /></div>
-        <div class="{style.briefSynopsis}"><ui:text from="{briefSynopsis}" /></div>
+        <div class="{style.column}">
+            <div class="{style.title}"><ui:text from="{title}" /></div>
+            <div class="{style.briefSynopsis}"><ui:text from="{briefSynopsis}" /></div>
+        </div>
     </div>
     
 </ui:UiBinder>
