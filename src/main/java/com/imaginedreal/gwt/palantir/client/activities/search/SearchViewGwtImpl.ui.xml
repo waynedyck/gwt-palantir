@@ -29,7 +29,7 @@
             <mgwt:panel.flex.FixedSpacer />
         </mgwt:header.HeaderPanel>
 
-        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false">
+        <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false" ui:field="scrollPanel">
         	<g:FlowPanel ui:field="flowPanel">
         	    <mgwt:input.search.MSearchBox ui:field="searchBox" addStyleNames="{style.searchBox}" />
                 <g:HTMLPanel styleName="{style.progressIndicatorPanel}">

@@ -18,7 +18,7 @@ package com.imaginedreal.gwt.palantir.client.util;
 
 public class Consts {
 
-	public static final String HOST_URL = "INSERT_SERVER_URL_HERE";
+	public static final String HOST_URL = "http://palantir-imaginedreal.rhcloud.com";
 	public static final boolean ANALYTICS_ENABLED = false; 
 	
 	/**

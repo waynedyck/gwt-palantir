@@ -19,7 +19,7 @@ package com.imaginedreal.gwt.palantir.client.activities.search;
 import java.util.List;
 
 import com.google.gwt.user.client.ui.IsWidget;
-import com.imaginedreal.gwt.palantir.shared.Topic;
+import com.imaginedreal.gwt.palantir.shared.Book;
 
 public interface SearchView extends IsWidget {
 	
@@ -33,10 +33,12 @@ public interface SearchView extends IsWidget {
 
 	}
 	
-    public void render(List<Topic> createTopicsList);
+    public void render(List<Book> createBooksList);
 
     public void showProgressIndicator();
 
     public void hideProgressIndicator();
+    
+    public void refresh();
     
 }

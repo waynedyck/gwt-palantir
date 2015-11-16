@@ -19,6 +19,8 @@ package com.imaginedreal.gwt.palantir.client.activities.search;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.safehtml.shared.SafeUri;
+import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -30,10 +32,10 @@ import com.googlecode.mgwt.ui.client.widget.button.image.PreviousitemImageButton
 import com.googlecode.mgwt.ui.client.widget.input.search.MSearchBox;
 import com.googlecode.mgwt.ui.client.widget.input.search.SearchSubmitEvent;
 import com.googlecode.mgwt.ui.client.widget.input.search.SearchSubmitHandler;
-import com.googlecode.mgwt.ui.client.widget.list.celllist.BasicCell;
 import com.googlecode.mgwt.ui.client.widget.list.celllist.CellList;
+import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
-import com.imaginedreal.gwt.palantir.shared.Topic;
+import com.imaginedreal.gwt.palantir.shared.Book;
 
 public class SearchViewGwtImpl extends Composite implements SearchView {
 
@@ -55,11 +57,15 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
 	PreviousitemImageButton backButton;
 
     @UiField(provided = true)
-    CellList<Topic> cellList;
+    CellList<Book> cellList;
 
     @UiField
     FlowPanel flowPanel;
 
+    @UiField
+    static
+    ScrollPanel scrollPanel;
+    
     @UiField(provided = true)
     MSearchBox searchBox;
 
@@ -69,18 +75,26 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
 	private Presenter presenter;
 	
 	public SearchViewGwtImpl() {
+	    
+	    handleOnLoad();
 	
-	    cellList = new CellList<Topic>(new BasicCell<Topic>() {
+	    cellList = new CellList<Book>(new BookCell<Book>() {
 
             @Override
-            public String getDisplayString(Topic model) {
-                return model.getName();
+            public SafeUri getBookCoverUrl(Book model) {
+                return UriUtils.fromString(model.getBookCoverUrl());
             }
 
             @Override
-            public boolean canBeSelected(Topic model) {
-                return true;
+            public String getTitle(Book model) {
+                return model.getTitle();
             }
+
+            @Override
+            public String getBriefSynopsis(Book model) {
+                return model.getBriefSynopsis();
+            }
+
 	    });
 	    
 	    searchBox = new MSearchBox();
@@ -99,6 +113,24 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
 
 	}
 
+    /**
+     * ScrollPanel doesn't allow scrolling to the bottom if it contains a CellList with images.
+     * 
+     * See: https://code.google.com/p/mgwt/issues/detail?id=276
+     * 
+     * ScrollPanel.refresh() must be explicitly called after the images are loaded.
+     * Since the onload event of images is not bubbling up, the LoadHandler can't be attached
+     * to the CellList. Instead, the onload event needs to be captured at the <img>, and directly
+     * trigger the ScrollPanel.refresh() from there.
+     */
+    private native void handleOnLoad() /*-{
+        $wnd.refreshPanel = @com.imaginedreal.gwt.palantir.client.activities.search.SearchViewGwtImpl::refreshPanel();
+    }-*/;
+
+    public static void refreshPanel() {
+        scrollPanel.refresh();
+    }
+
 	@UiHandler("backButton")
 	protected void onBackButtonPressed(TapEvent event) {
 		if (presenter != null) {
@@ -112,9 +144,8 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
 	}
 
     @Override
-    public void render(List<Topic> createTopicsList) {
-        // TODO Auto-generated method stub
-        
+    public void render(List<Book> createBooksList) {
+        cellList.render(createBooksList);
     }
 
     @Override
@@ -125,6 +156,11 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
     @Override
     public void hideProgressIndicator() {
         progressIndicator.setVisible(false);
+    }
+
+    @Override
+    public void refresh() {
+        scrollPanel.refresh();
     }
 
 }

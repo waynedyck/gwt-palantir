@@ -1,0 +1,46 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder">
+
+    <ui:style>
+        .videoImage {
+            overflow: hidden;
+            display: inline-block;
+            -webkit-border-radius: 8px;
+        }
+        .videoImage div {
+            position: relative;
+            max-width: none;
+            height: auto;
+            margin: -2px -2px -6px -2px;
+        }
+        .img {
+            max-width: 100%;
+        }
+        .title {
+            font-size: small;
+            font-weight: normal;
+            word-wrap: break-word;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+        .briefSynopsis {
+            font-size: small;
+            color: #7d7d7d;
+        }
+    </ui:style>
+    
+    <ui:with field="bookCoverUrl" type="com.google.gwt.safehtml.shared.SafeUri" />
+    <ui:with field="title" type="java.lang.String" />
+    <ui:with field="briefSynopsis" type="java.lang.String" />
+    
+    <div>
+        <div class="{style.videoImage}">
+            <div>
+                <img class="{style.img}" src="{bookCoverUrl}" onload="refreshPanel();" />
+            </div>
+        </div>
+        <div class="{style.title}"><ui:text from="{title}" /></div>
+        <div class="{style.briefSynopsis}"><ui:text from="{briefSynopsis}" /></div>
+    </div>
+    
+</ui:UiBinder>
