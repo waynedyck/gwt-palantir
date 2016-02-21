@@ -28,6 +28,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.widget.button.image.PreviousitemImageButton;
 import com.googlecode.mgwt.ui.client.widget.input.search.MSearchBox;
 import com.googlecode.mgwt.ui.client.widget.input.search.SearchSubmitEvent;
@@ -35,6 +36,7 @@ import com.googlecode.mgwt.ui.client.widget.input.search.SearchSubmitHandler;
 import com.googlecode.mgwt.ui.client.widget.list.celllist.CellList;
 import com.googlecode.mgwt.ui.client.widget.panel.scroll.ScrollPanel;
 import com.googlecode.mgwt.ui.client.widget.progress.ProgressIndicator;
+import com.imaginedreal.gwt.palantir.client.util.ParserUtils;
 import com.imaginedreal.gwt.palantir.shared.Book;
 
 public class SearchViewGwtImpl extends Composite implements SearchView {
@@ -92,7 +94,15 @@ public class SearchViewGwtImpl extends Composite implements SearchView {
 
             @Override
             public String getBriefSynopsis(Book model) {
-                return model.getBriefSynopsis();
+                String briefSynopsis = "";
+
+                if (MGWT.getOsDetection().isPhone()) {
+                    briefSynopsis = ParserUtils.ellipsis(model.getBriefSynopsis(), 128);
+                } else {
+                    briefSynopsis = ParserUtils.ellipsis(model.getBriefSynopsis(), 512);
+                }
+
+                return briefSynopsis;
             }
 
 	    });
