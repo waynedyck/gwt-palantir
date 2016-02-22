@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Wayne Dyck
+ * Copyright 2016 Wayne Dyck
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 
 package com.imaginedreal.gwt.palantir.client.activities.settings;
 
+import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.IsWidget;
 
 public interface SettingsView extends IsWidget {
@@ -27,4 +29,8 @@ public interface SettingsView extends IsWidget {
 		public void onBackButtonPressed();
 		
 	}
+
+	public HasValue<Integer> getSliderValue();
+
+	public HasHTML getTextField();
 }

@@ -19,7 +19,8 @@ package com.imaginedreal.gwt.palantir.client.activities.settings;
 import com.imaginedreal.gwt.palantir.client.ClientFactory;
 import com.imaginedreal.gwt.palantir.client.event.ActionEvent;
 import com.imaginedreal.gwt.palantir.client.event.ActionNames;
-
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.googlecode.mgwt.mvp.client.MGWTAbstractActivity;
@@ -40,6 +41,16 @@ public class SettingsActivity extends MGWTAbstractActivity implements
 		view = clientFactory.getSettingsView();
 		this.eventBus = eventBus;
 		view.setPresenter(this);
+
+		addHandlerRegistration(view.getSliderValue().addValueChangeHandler(new ValueChangeHandler<Integer>() {
+
+            @Override
+            public void onValueChange(ValueChangeEvent<Integer> event) {
+                view.getTextField().setText("" + event.getValue());
+            }
+		}));
+
+		view.getSliderValue().setValue(12); // Initial text size
 
 		panel.setWidget(view);
 

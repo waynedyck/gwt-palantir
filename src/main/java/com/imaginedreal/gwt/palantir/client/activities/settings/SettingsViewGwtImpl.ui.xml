@@ -17,12 +17,15 @@
         </mgwt:header.HeaderPanel>
 
         <mgwt:panel.scroll.ScrollPanel scrollingEnabledX="false">
-            <mgwt:panel.Panel>
-                <g:HTML>
-                    <p>Sed nunc turpis, porta at fringilla eu, auctor sed elit. 
-                        In tincidunt nibh quis posuere aliquet.</p>
-                </g:HTML>
-            </mgwt:panel.Panel>
+            <g:FlowPanel ui:field="flowPanel">
+                <mgwt:list.widgetlist.WidgetList ui:field="widgetList">
+                    <mgwt:header>
+                        <g:Label text="Font" />
+                    </mgwt:header>
+                    <mgwt:input.slider.Slider ui:field="slider" max="24" />
+                    <g:HTML ui:field="valueField">0</g:HTML>
+                </mgwt:list.widgetlist.WidgetList>
+            </g:FlowPanel>
         </mgwt:panel.scroll.ScrollPanel>
 
     </mgwt:panel.flex.RootFlexPanel>
